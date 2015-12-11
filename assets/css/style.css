@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.game_area {
+    margin: auto;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+#game_screen {
+}
