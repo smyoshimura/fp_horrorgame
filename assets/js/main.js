@@ -1,3 +1,15 @@
+var game = new Phaser.Game(800, 608, Phaser.AUTO, 'game_screen');
+
+game.state.add('Title', Title);
+
+game.state.add('Game', Game);
+
+game.state.add('Game_Over', Game_Over);
+
+game.state.start('Title');
+
+// // // // // // //
+/*
 var FONT = 32;
 var ROWS = 10;
 var COLS = 20;
@@ -121,4 +133,4 @@ function initActors() {
 
     player = actorList[0];
     livingEnemies = ACTORS - 1;
-}
+}*/
