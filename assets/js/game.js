@@ -1,8 +1,9 @@
-var player, rightKey, leftKey, upKey, downKey;
+var player, eyenemy, rightKey, leftKey, upKey, downKey;
 
 var Game = {
     preload: function () {
         game.load.image('player', './assets/images/player.png');
+        game.load.image('eyenemy', './assets/images/eye.png');
     },
 
     create: function () {
@@ -13,12 +14,22 @@ var Game = {
         game.physics.startSystem(Phaser.Physics.Arcade);
 
         //Initialize player
-        var randomX = Math.floor(Math.random() * 25) * 32,
-            randomY = Math.floor(Math.random() * 19) * 32;
+        randomX = function () {
+            return Math.floor(Math.random() * 25) * 32
+        };
 
-        player = game.add.sprite(randomX, randomY, 'player');
+        randomY = function () {
+            return Math.floor(Math.random() * 19) * 32
+        };
+
+        player = game.add.sprite(randomX(), randomY(), 'player');
         game.physics.arcade.enable(player);
         player.body.collideWorldBounds = true;
+
+        //Initialize enemy - needs check for overlapping other units
+        eyenemy = game.add.sprite(randomX(), randomY(), 'eyenemy');
+        game.physics.arcade.enable(eyenemy);
+        eyenemy.body.collideWorldBounds = true;
 
         //Initialize keys
         rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
